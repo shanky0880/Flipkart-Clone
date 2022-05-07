@@ -1,13 +1,19 @@
-import 'package:carousel_pro/carousel_pro.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_staggered_grid_view/flutter_staggered_grid_view.dart';
 import 'package:template/popularcategory/popcarddetails.dart';
 import 'package:template/popularcategory/popcardstruct.dart';
 import 'package:template/top_offer/topcarddetails.dart';
 import 'package:template/top_offer/topstruct.dart';
 
 class Home extends StatelessWidget {
-  const Home({Key? key}) : super(key: key);
+  Home({Key? key}) : super(key: key);
+
+  final List<String> imglist = [
+    'https://media.istockphoto.com/vectors/diwali-festival-deals-and-offers-with-gift-box-vector-id626231016',
+    'https://cdn.mos.cms.futurecdn.net/eG9dwWMNrFwoc4uW4YHS2Z-768-80.jpg',
+    'https://www.rummymillionaire.com/wp-content/uploads/2017/10/grand-diwali-dhamaka-rummy-tournament.png',
+    'https://akm-img-a-in.tosshub.com/aajtak/images/photo_gallery/202101/flipkart_sale_banner.jpg',
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -27,10 +33,11 @@ class Home extends StatelessWidget {
                       'https://static.toiimg.com/thumb/msid-86006062/86006062.jpg?width=500&resizemode=4'),
                 ),
                 actions: [
-                  IconButton(onPressed: () {}, icon: Icon(Icons.add_box)),
-                  IconButton(onPressed: () {}, icon: Icon(Icons.shopping_cart)),
-                  Padding(
-                    padding: const EdgeInsets.only(right: 18.0),
+                  IconButton(onPressed: () {}, icon: const Icon(Icons.add_box)),
+                  IconButton(
+                      onPressed: () {}, icon: const Icon(Icons.shopping_cart)),
+                  const Padding(
+                    padding: EdgeInsets.only(right: 18.0),
                     child: Center(
                         child: Text(
                       'Login',
@@ -45,7 +52,7 @@ class Home extends StatelessWidget {
                   width: double.infinity,
                   height: 40,
                   color: Colors.white,
-                  child: Center(
+                  child: const Center(
                     child: TextField(
                       decoration: InputDecoration(
                           hintText: 'Search for something',
@@ -56,12 +63,12 @@ class Home extends StatelessWidget {
                 ))),
             SliverList(
               delegate: SliverChildListDelegate([
-                Container(
+                SizedBox(
                   height: 900,
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      SizedBox(
+                      const SizedBox(
                         height: 15,
                       ),
                       // Container(
@@ -132,8 +139,8 @@ class Home extends StatelessWidget {
                       //   height: 25,
                       // ),
                       Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 18.0),
+                        child: const Padding(
+                          padding: EdgeInsets.only(left: 18.0),
                           child: Text(
                             'Upcoming Sale',
                             style: TextStyle(
@@ -143,25 +150,25 @@ class Home extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 8,
                       ),
                       Container(
                           height: 100,
                           width: double.infinity,
                           //  color: Colors.black,
-                          decoration: BoxDecoration(
+                          decoration: const BoxDecoration(
                               image: DecorationImage(
                                   image: NetworkImage(
                                     'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXrewpMB3qMT_om2F6wJ75Ykib1a-Lx2QUzQ&usqp=CAU',
                                   ),
                                   fit: BoxFit.cover))),
-                      SizedBox(
+                      const SizedBox(
                         height: 25,
                       ),
                       Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 18.0),
+                        child: const Padding(
+                          padding: EdgeInsets.only(left: 18.0),
                           child: Text(
                             'Popular',
                             style: TextStyle(
@@ -171,13 +178,13 @@ class Home extends StatelessWidget {
                           ),
                         ),
                       ),
-                      Container(
+                      SizedBox(
                           height: 130,
                           child: ListView.separated(
-                            padding: EdgeInsets.all(8),
+                            padding: const EdgeInsets.all(8),
                             scrollDirection: Axis.horizontal,
                             itemCount: 6,
-                            separatorBuilder: (context, _) => SizedBox(
+                            separatorBuilder: (context, _) => const SizedBox(
                               width: 25,
                             ),
                             itemBuilder: (context, index) => Carditemstruct(
@@ -185,12 +192,12 @@ class Home extends StatelessWidget {
                               context: context,
                             ),
                           )),
-                      SizedBox(
+                      const SizedBox(
                         height: 8,
                       ),
                       Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 18.0),
+                        child: const Padding(
+                          padding: EdgeInsets.only(left: 18.0),
                           child: Text(
                             'Sale & Sponsor',
                             style: TextStyle(
@@ -200,40 +207,42 @@ class Home extends StatelessWidget {
                           ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 8,
                       ),
-                      SizedBox(
-                        height: 100.0,
-                        width: double.infinity,
-                        child: Carousel(
-                          boxFit: BoxFit.cover,
-                          images: const [
-                            NetworkImage(
-                                'https://media.istockphoto.com/vectors/diwali-festival-deals-and-offers-with-gift-box-vector-id626231016'),
-                            NetworkImage(
-                                'https://cdn.mos.cms.futurecdn.net/eG9dwWMNrFwoc4uW4YHS2Z-768-80.jpg'),
-                            NetworkImage(
-                                'https://www.rummymillionaire.com/wp-content/uploads/2017/10/grand-diwali-dhamaka-rummy-tournament.png'),
-                            NetworkImage(
-                                'https://akm-img-a-in.tosshub.com/aajtak/images/photo_gallery/202101/flipkart_sale_banner.jpg'),
-
-                            // ExactAssetImage("assets/images/LaunchImage.jpg"),
-                          ],
-                          dotSize: 4.0,
-                          dotSpacing: 15.0,
-                          dotColor: Colors.grey,
-                          indicatorBgPadding: 4,
-                          dotBgColor: Colors.transparent,
-                          borderRadius: true,
+                      Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: SizedBox(
+                          height: 100,
+                          width: double.infinity,
+                          child: CarouselSlider(
+                            items: imglist
+                                .map((e) => Padding(
+                                      padding: const EdgeInsets.only(left: 5),
+                                      child: SizedBox(
+                                        child: Image.network(
+                                          e,
+                                          fit: BoxFit.cover,
+                                          width: double.infinity,
+                                        ),
+                                      ),
+                                    ))
+                                .toList(),
+                            options: CarouselOptions(
+                              autoPlay: true,
+                              aspectRatio: 2.0,
+                              enlargeCenterPage: true,
+                              enlargeStrategy: CenterPageEnlargeStrategy.height,
+                            ),
+                          ),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 25,
                       ),
                       Container(
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 18.0),
+                        child: const Padding(
+                          padding: EdgeInsets.only(left: 18.0),
                           child: Text(
                             'Top Offers',
                             style: TextStyle(
@@ -248,10 +257,10 @@ class Home extends StatelessWidget {
                         child: Padding(
                           padding: const EdgeInsets.only(left: 2.0, right: 2.0),
                           child: GridView.builder(
-                            physics: NeverScrollableScrollPhysics(),
+                            physics: const NeverScrollableScrollPhysics(),
                             itemCount: 4,
                             gridDelegate:
-                                SliverGridDelegateWithFixedCrossAxisCount(
+                                const SliverGridDelegateWithFixedCrossAxisCount(
                                     crossAxisCount: 2),
                             itemBuilder: (context, index) {
                               return Padding(
